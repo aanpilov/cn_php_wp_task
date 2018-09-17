@@ -25,6 +25,7 @@ add_action('init', function() {
         <p><?php _e("Please install and activate 'Coding Ninjas Tasks' plugin", 'cn'); ?></p>
       </div>
       <?php
+      deactivate_plugins(plugin_basename(__FILE__));
     });
   }
 }, 9);
