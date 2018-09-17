@@ -10,6 +10,7 @@ Text Domain: cn
 */
 
 defined('ABSPATH') || die();
+
 // Check if parent plugin active
 add_action('init', function() {
   include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -22,11 +23,14 @@ add_action('init', function() {
     add_action('admin_notices', function() {
       ?>
       <div class="notice notice-error is-dismissible">
-        <p><?php _e("Please install and activate '<strong>Coding Ninjas Tasks</strong>' plugin", 'cn'); ?></p>
+        <p><?php _e("Plugin '<strong>Coding Ninjas Tasks Extension</strong>' deactivated. Please make sure '<strong>Coding Ninjas Tasks</strong>' plugin is installed and activated first", 'cn'); ?></p>
       </div>
       <?php
     });
     // Deactivate plugin
     deactivate_plugins(plugin_basename(__FILE__));
+    if (isset($_GET['activate'])) {
+      unset($_GET['activate']);
+    }
   }
 }, 9);
