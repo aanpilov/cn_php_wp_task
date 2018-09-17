@@ -22,10 +22,11 @@ add_action('init', function() {
     add_action('admin_notices', function() {
       ?>
       <div class="notice notice-error is-dismissible">
-        <p><?php _e("Please install and activate 'Coding Ninjas Tasks' plugin", 'cn'); ?></p>
+        <p><?php _e("Please install and activate '<strong>Coding Ninjas Tasks</strong>' plugin", 'cn'); ?></p>
       </div>
       <?php
-      deactivate_plugins(plugin_basename(__FILE__));
     });
+    // Deactivate plugin
+    deactivate_plugins(plugin_basename(__FILE__));
   }
 }, 9);
