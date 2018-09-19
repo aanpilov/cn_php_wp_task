@@ -14,7 +14,7 @@ defined('ABSPATH') || die();
 // Check if parent plugin active
 add_action('init', function() {
   include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-  if (is_plugin_active('cn_php_wp_plugin_for_tasks/coding-ninjas.php')) {
+  if (is_plugin_active('coding-ninjas/coding-ninjas.php')) {
     // Load plugin
     require_once "app/App.php";
     \cntesttask\Test::init(__FILE__);
