@@ -66,6 +66,7 @@ class Test {
   {
     add_filter('cn_tasks_thead_cols', array($this, 'addColHead'));
     add_filter('cn_tasks_tbody_row_cols', array($this, 'addColRow'));
+
     add_filter('cn_menu', array($this, 'addMenuItem'));
 
     // For older versions
@@ -226,10 +227,12 @@ class Test {
   }
 
   public function addMenuItem($menu) {
-    $menu['#addTask'] = array(
-      'title' => 'Add New Task',
-      'icon' => 'fa-plus-circle'
-    );
+    if ("tasks" == self::$route) {
+      $menu['#addTask'] = array(
+        'title' => 'Add New Task',
+        'icon' => 'fa-plus-circle'
+      );
+    }
     return $menu;
   }
 
